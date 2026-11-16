@@ -1,0 +1,8 @@
+---
+interface Props { large?: boolean }
+const { large = false } = Astro.props;
+---
+<svg class:list={['lab-mark', { 'lab-mark-large': large }]} viewBox="0 0 48 48" fill="none" aria-hidden="true">
+  <rect width="48" height="48" rx="12" fill="currentColor" />
+  <path d="M15 15h-4v18h4M33 15h4v18h-4M20 30V20m0 3c5-6 9-3 9 2v5" stroke="#FAFAF6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+</svg>

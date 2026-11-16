@@ -1,0 +1,9 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageIntro from '../components/PageIntro.astro';
+import EmptyState from '../components/EmptyState.astro';
+import ResearchCard from '../components/ResearchCard.astro';
+import { research } from '../data/lab';
+import { placeholders } from '../data/ui';
+---
+<Layout title="Research"><PageIntro english="RESEARCH" title="Research" description="Explore the questions we ask, the methods we use and our related projects." /><section class="container page-content">{research.length ? <div class="research-grid">{research.map((item, index) => <ResearchCard item={item} index={index} />)}</div> : <EmptyState title={placeholders.research} description="Research themes, descriptions, images and related projects will appear here." />}</section></Layout>

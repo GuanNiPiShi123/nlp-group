@@ -1,0 +1,45 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { site } from '../data/lab';
+import { placeholders } from '../data/ui';
+import { asset } from '../lib/utils';
+import '../styles/global.css';
+import '../styles/university.css';
+import '../styles/typography.css';
+import '../styles/refinements.css';
+interface Props { title?: string; description?: string }
+const { title, description } = Astro.props;
+const name = site.seo.title || site.name || placeholders.name;
+const pageTitle = title ? `${title} · ${name}` : `${name} | NLP`;
+const pageDescription = description || site.seo.description || site.introduction || 'A natural language processing research group. Explore our research, people, publications and latest news.';
+const canonical = Astro.site ? new URL(Astro.url.pathname, Astro.site).href : undefined;
+const shareImage = site.seo.image && Astro.site ? new URL(asset(site.seo.image), Astro.site).href : undefined;
+---
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={pageDescription} />
+    <meta name="theme-color" content="#254e43" />
+    <title>{pageTitle}</title>
+    <link rel="icon" type="image/svg+xml" href={asset('/favicon.svg')} />
+    <link rel="preload" href={asset('/fonts/dm-sans-latin.woff2')} as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href={asset('/fonts/source-serif-4-latin.woff2')} as="font" type="font/woff2" crossorigin />
+    {canonical && <link rel="canonical" href={canonical} />}
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_GB" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    {canonical && <meta property="og:url" content={canonical} />}
+    {shareImage && <meta property="og:image" content={shareImage} />}
+    <meta name="twitter:card" content={shareImage ? 'summary_large_image' : 'summary'} />
+  </head>
+  <body id="top">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <Header />
+    <main id="main-content" tabindex="-1"><slot /></main>
+    <Footer />
+  </body>
+</html>

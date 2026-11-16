@@ -1,0 +1,9 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageIntro from '../components/PageIntro.astro';
+import Mark from '../components/Mark.astro';
+import { site } from '../data/lab';
+import { placeholders } from '../data/ui';
+import { safeLink, emailLink } from '../lib/utils';
+---
+<Layout title="Contact"><PageIntro english="GET IN TOUCH" title="Contact" description="For research enquiries, academic collaboration and other questions, use the contact details published here." /><section class="container page-content contact-grid"><div class="contact-information"><dl><div><dt>Affiliation</dt><dd>{site.institution || placeholders.institution}{site.department && <><br />{site.department}</>}</dd></div><div><dt>Email</dt><dd>{emailLink(site.email) ? <a href={emailLink(site.email)}>{site.email} ↗</a> : 'Email coming soon'}</dd></div><div><dt>Address</dt><dd>{site.address || 'Address coming soon'}{site.location && <><br />{site.location}</>}</dd></div><div><dt>Elsewhere</dt><dd>{site.links.some(link => safeLink(link.url)) ? <div class="text-links">{site.links.filter(link => safeLink(link.url)).map(link => <a href={safeLink(link.url)} target="_blank" rel="noopener noreferrer">{link.label} ↗</a>)}</div> : 'Links coming soon'}</dd></div></dl></div><div class="contact-panel"><Mark large /><div><h2>{site.name || placeholders.name}</h2><p>{site.englishName || placeholders.englishName}</p></div><span class="contact-panel-caption">Language · Understanding · Connection</span></div></section></Layout>

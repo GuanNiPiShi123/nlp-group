@@ -1,0 +1,14 @@
+---
+import Mark from './Mark.astro';
+import UniversityBrand from './UniversityBrand.astro';
+import { site } from '../data/lab';
+import { placeholders } from '../data/ui';
+import { path, safeLink } from '../lib/utils';
+---
+<footer class="site-footer">
+  <div class="container footer-top">
+    <div class="footer-branding"><UniversityBrand /><a class="brand" href={path()}><Mark /><span class="brand-text"><strong>{site.name || placeholders.name}</strong><span>{site.englishName || placeholders.englishName}</span></span></a></div>
+    <div class="footer-links"><a href={path('contact')}>Contact ↗</a>{site.links.filter(link => safeLink(link.url)).map(link => <a href={safeLink(link.url)} target="_blank" rel="noopener noreferrer">{link.label} ↗</a>)}</div>
+  </div>
+  <div class="container footer-bottom"><span>© {new Date().getFullYear()} {site.copyright || site.name || placeholders.name}</span><span>Language. Understanding. Possibility.</span><a href="#top">Back to top ↑</a></div>
+</footer>

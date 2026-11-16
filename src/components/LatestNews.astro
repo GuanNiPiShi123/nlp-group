@@ -1,0 +1,19 @@
+---
+import type { NewsItem } from '../data/lab';
+import { newsPlaceholders } from '../data/ui';
+import { displayDate, path, safeLink } from '../lib/utils';
+import Arrow from './Arrow.astro';
+interface Props { items: NewsItem[] }
+const { items } = Astro.props;
+---
+<section class="home-news-strip" aria-labelledby="latest-news-heading">
+  <div class="container news-strip-inner">
+    <div class="latest-news-heading">
+      <div class="strip-label"><span class="status-dot" aria-hidden="true"></span><h2 id="latest-news-heading">Latest news</h2></div>
+      <a class="strip-more" href={path('news')}>All news <Arrow /></a>
+    </div>
+    <ol class="latest-news-rows" aria-label={items.length ? 'Latest group updates' : 'News layout placeholders'}>
+      {items.length ? items.map(item => <li class="latest-news-row"><time datetime={item.date}>{displayDate(item.date)}</time><a href={safeLink(item.url) || path(`news/${item.slug}`)}>{item.title}</a></li>) : newsPlaceholders.map(item => <li class="latest-news-row is-placeholder"><span class="news-date-placeholder" aria-label="Date to be added">{item.date}</span><span>{item.title}</span></li>)}
+    </ol>
+  </div>
+</section>

@@ -1,0 +1,13 @@
+---
+import { site } from '../data/lab';
+import { asset, safeLink } from '../lib/utils';
+const branding = site.branding;
+interface Props { showSchool?: boolean }
+const { showSchool = true } = Astro.props;
+---
+{branding.enabled && <div class="uob-identity">
+  <a class="uob-logo-link" href={safeLink(branding.universityUrl)} aria-label={branding.universityName}>
+    <img class="uob-logo" src={asset(branding.logo)} alt={branding.universityName} width="280" height="92" />
+  </a>
+  {showSchool && <a class="uob-school-link" href={safeLink(branding.schoolUrl)}>{branding.schoolName}</a>}
+</div>}

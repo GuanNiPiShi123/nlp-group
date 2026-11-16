@@ -1,0 +1,518 @@
+/* Header identity: university logo, then group and school on two readable lines. */
+.home-section-title {
+  display: flex;
+  align-items: baseline;
+  gap: 20px;
+}
+.home-section-number {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 0.08em;
+  flex-shrink: 0;
+}
+.home-section-heading .home-section-title h2 {
+  margin: 0;
+}
+.home-section-description {
+  font-size: 14px;
+  line-height: 1.8;
+}
+.home-members-grid {
+  margin-top: 0;
+}
+.home-contact-summary {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  padding: 32px 35px;
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  background: #f0f2e9;
+}
+.home-contact-summary > p {
+  font-size: 15px;
+  line-height: 1.8;
+}
+.home-contact-summary dl {
+  margin: 0;
+  display: grid;
+  gap: 18px;
+}
+.home-contact-summary dt {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--green);
+  font-weight: 600;
+}
+.home-contact-summary dd {
+  margin: 4px 0 0;
+  color: var(--muted);
+  font-size: 14px;
+  overflow-wrap: anywhere;
+}
+.home-contact-summary dd a:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.join-home .home-section-number {
+  color: #ccdbc6;
+}
+.join-home .home-section-title h2 {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: 42px;
+  font-weight: 400;
+  letter-spacing: -0.025em;
+}
+.join-home .join-tagline {
+  margin: 18px 0 12px;
+  color: #f0f3e9;
+  font-family: var(--serif);
+  font-size: 25px;
+  line-height: 1.35;
+}
+.people-content .group-empty {
+  margin-left: 0;
+}
+.opportunities .opportunity {
+  grid-template-columns: minmax(0, 1fr) 30px;
+}
+@media (max-width: 760px) {
+  .home-section-title {
+    gap: 14px;
+  }
+  .home-section-heading {
+    align-items: flex-start;
+  }
+  .home-section-heading .home-section-title h2 {
+    font-size: 30px !important;
+  }
+  .home-section-heading .text-link {
+    margin-top: 8px;
+  }
+  .home-section-description {
+    font-size: 12px;
+  }
+  .home-contact-summary {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 26px;
+  }
+  .home-contact-summary > p {
+    font-size: 14px;
+  }
+  .join-home .home-section-title h2 {
+    font-size: 34px;
+  }
+  .join-home .join-tagline {
+    font-size: 23px;
+  }
+}
+@media (max-width: 370px) {
+  .home-section-heading .home-section-title h2 {
+    font-size: 27px !important;
+  }
+  .home-section-heading .text-link {
+    font-size: 10px;
+    gap: 5px;
+  }
+  .home-section-heading {
+    gap: 14px;
+  }
+}
+.site-header .header-identities {
+  gap: 24px;
+}
+.site-header .uob-identity {
+  width: 145px;
+}
+.site-header .uob-logo {
+  width: 140px;
+  height: 46px;
+}
+.header-lab-lockup {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  min-width: 0;
+}
+.has-university .header-lab-lockup {
+  border-left: 1px solid var(--line);
+  padding-left: 24px;
+}
+.has-university .header-lab-brand {
+  border: 0;
+  padding: 0;
+  min-height: 0;
+}
+.has-university .header-lab-brand .brand-text strong {
+  font-size: 17px;
+  line-height: 1.35;
+}
+.header-school-name {
+  font-size: 15px;
+  line-height: 1.4;
+  font-weight: 400;
+  color: var(--green);
+}
+.header-school-name:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+/* The image spans the viewport and dissolves into the page along both axes. */
+.hero.hero-immersive {
+  position: relative;
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  isolation: isolate;
+  background: var(--paper);
+}
+.hero-immersive .hero-inner {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  align-items: center;
+  min-height: 610px;
+  padding-top: 64px;
+  padding-bottom: 110px;
+  gap: 50px;
+  pointer-events: none;
+}
+.hero-immersive .hero-copy {
+  max-width: 550px;
+  padding: 0;
+  pointer-events: auto;
+}
+.hero-immersive h1 {
+  margin-top: 0;
+}
+.hero-immersive .hero-description {
+  max-width: 425px;
+}
+.hero-immersive .hero-actions {
+  margin-top: 30px;
+}
+.hero-immersive .campus-background {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-height: none;
+  aspect-ratio: auto;
+  border-radius: 0;
+  background: transparent;
+  isolation: auto;
+  z-index: auto;
+}
+.hero-immersive .campus-photo {
+  z-index: 0;
+  object-position: center 12%;
+}
+.hero-immersive .campus-overlay {
+  z-index: 1;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(250, 250, 246, 0.08) 0%,
+      rgba(250, 250, 246, 0) 45%,
+      rgba(250, 250, 246, 0.15) 62%,
+      rgba(250, 250, 246, 0.82) 88%,
+      #fafaf6 100%
+    ),
+    linear-gradient(
+      90deg,
+      #fafaf6 0%,
+      rgba(250, 250, 246, 0.98) 19%,
+      rgba(250, 250, 246, 0.91) 34%,
+      rgba(250, 250, 246, 0.62) 49%,
+      rgba(250, 250, 246, 0.12) 69%,
+      rgba(250, 250, 246, 0.03) 100%
+    );
+}
+.hero-immersive .campus-caption {
+  z-index: 3;
+  left: auto;
+  right: max(56px, calc((100% - 1200px) / 2));
+  bottom: 57px;
+  width: max-content;
+  max-width: 43%;
+  color: var(--green);
+}
+.hero-immersive .campus-caption > a {
+  font-size: 27px;
+  font-weight: 400;
+  line-height: 1.25;
+}
+
+/* Dated rows remain clearly empty until real news is supplied. */
+.home-news-strip .news-strip-inner {
+  display: grid;
+  grid-template-columns: 175px minmax(0, 1fr);
+  align-items: start;
+  gap: 36px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+.latest-news-heading {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 17px;
+  padding-top: 9px;
+}
+.latest-news-heading .strip-more {
+  margin: 0 0 0 17px;
+  gap: 12px;
+}
+.latest-news-rows {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.latest-news-row {
+  display: grid;
+  grid-template-columns: 120px minmax(0, 1fr);
+  align-items: baseline;
+  gap: 26px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 14px;
+  line-height: 1.6;
+}
+.latest-news-row:first-child {
+  padding-top: 7px;
+}
+.latest-news-row:last-child {
+  border: 0;
+  padding-bottom: 7px;
+}
+.latest-news-row time,
+.news-date-placeholder {
+  color: var(--muted);
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.025em;
+}
+.latest-news-row a:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.latest-news-row.is-placeholder > span:last-child {
+  color: var(--muted);
+}
+.news-date-placeholder {
+  font-size: 10px;
+  letter-spacing: 0.08em;
+}
+@media (max-width: 1200px) {
+  .site-header .header-identities {
+    gap: 18px;
+  }
+  .has-university .header-lab-lockup {
+    padding-left: 18px;
+  }
+  .hero-immersive .hero-inner {
+    min-height: 570px;
+    gap: 40px;
+  }
+  .hero-immersive .campus-caption {
+    right: 40px;
+  }
+}
+@media (max-width: 1080px) {
+  .hero-immersive .hero-inner {
+    min-height: 560px;
+    grid-template-columns: 1.12fr 1fr;
+    gap: 30px;
+  }
+  .hero-immersive .campus-caption {
+    right: 36px;
+    bottom: 50px;
+  }
+  .hero-immersive .campus-caption > a {
+    font-size: 25px;
+  }
+  .home-news-strip .news-strip-inner {
+    grid-template-columns: 150px minmax(0, 1fr);
+    gap: 28px;
+  }
+  .latest-news-row {
+    grid-template-columns: 112px minmax(0, 1fr);
+    gap: 20px;
+  }
+}
+@media (max-width: 760px) {
+  .site-header .header-inner {
+    min-height: 90px;
+    gap: 12px;
+  }
+  .site-header .header-identities {
+    gap: 13px;
+  }
+  .site-header .uob-identity {
+    width: 104px;
+  }
+  .site-header .uob-logo {
+    width: 104px;
+    height: 35px;
+  }
+  .has-university .header-lab-lockup {
+    padding-left: 13px;
+    gap: 4px;
+  }
+  .has-university .header-lab-brand .brand-text,
+  .has-university .header-lab-brand .brand-text strong {
+    max-width: 165px;
+  }
+  .has-university .header-lab-brand .brand-text strong {
+    font-size: 14px;
+    line-height: 1.25;
+  }
+  .header-school-name {
+    font-size: 13px;
+    line-height: 1.35;
+    max-width: 170px;
+  }
+  .site-header .menu-toggle {
+    width: 40px;
+    min-width: 40px;
+    min-height: 40px;
+    justify-content: center;
+    padding: 10px;
+  }
+  .site-header .menu-toggle > span:first-child {
+    display: none;
+  }
+  .hero-immersive .hero-inner {
+    grid-template-columns: 1fr;
+    min-height: 730px;
+    align-items: start;
+    padding-top: 48px;
+    padding-bottom: 310px;
+    gap: 25px;
+  }
+  .hero-immersive .hero-copy {
+    max-width: 470px;
+  }
+  .hero-immersive .hero-description {
+    max-width: 410px;
+  }
+  .hero-immersive .campus-photo {
+    object-position: 52% top;
+  }
+  .hero-immersive .campus-overlay {
+    background:
+      linear-gradient(
+        180deg,
+        #fafaf6 0%,
+        rgba(250, 250, 246, 0.99) 20%,
+        rgba(250, 250, 246, 0.91) 39%,
+        rgba(250, 250, 246, 0.5) 57%,
+        rgba(250, 250, 246, 0.03) 72%,
+        rgba(250, 250, 246, 0.62) 90%,
+        #fafaf6 100%
+      ),
+      linear-gradient(
+        90deg,
+        rgba(250, 250, 246, 0.18),
+        rgba(250, 250, 246, 0.02)
+      );
+  }
+  .hero-immersive .campus-caption {
+    left: 20px;
+    right: 20px;
+    bottom: 36px;
+    max-width: none;
+    width: auto;
+  }
+  .hero-immersive .campus-caption > a {
+    display: block;
+    font-size: 24px;
+  }
+  .home-news-strip .news-strip-inner {
+    grid-template-columns: 1fr;
+    gap: 19px;
+    padding-top: 22px;
+    padding-bottom: 22px;
+  }
+  .latest-news-heading {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0;
+    gap: 15px;
+  }
+  .latest-news-heading .strip-more {
+    margin: 0;
+  }
+  .latest-news-row {
+    grid-template-columns: 105px minmax(0, 1fr);
+    gap: 16px;
+    font-size: 13px;
+    padding: 12px 0;
+  }
+  .latest-news-row:first-child {
+    padding-top: 0;
+  }
+}
+@media (max-width: 370px) {
+  .site-header .header-inner {
+    min-height: 96px;
+    gap: 9px;
+  }
+  .site-header .header-identities {
+    gap: 10px;
+  }
+  .site-header .uob-identity {
+    width: 90px;
+  }
+  .site-header .uob-logo {
+    width: 90px;
+    height: 30px;
+  }
+  .has-university .header-lab-lockup {
+    padding-left: 10px;
+  }
+  .has-university .header-lab-brand .brand-text,
+  .has-university .header-lab-brand .brand-text strong {
+    max-width: 117px;
+  }
+  .has-university .header-lab-brand .brand-text strong {
+    font-size: 13px;
+  }
+  .header-school-name {
+    font-size: 12px;
+    max-width: 117px;
+  }
+  .hero-immersive .hero-inner {
+    min-height: 730px;
+    padding-top: 40px;
+    padding-bottom: 275px;
+  }
+  .hero-immersive .campus-caption > a {
+    font-size: 22px;
+  }
+  .latest-news-row {
+    grid-template-columns: 94px minmax(0, 1fr);
+    gap: 12px;
+  }
+  .news-date-placeholder {
+    font-size: 9px;
+  }
+}
+@media print {
+  .hero-immersive .campus-background {
+    display: none;
+  }
+  .hero-immersive .hero-inner {
+    min-height: 0;
+    padding: 25px 0;
+  }
+}

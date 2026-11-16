@@ -1,0 +1,9 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageIntro from '../components/PageIntro.astro';
+import MemberCard from '../components/MemberCard.astro';
+import { members, memberCategories } from '../data/lab';
+const unlisted = [...new Set(members.map(member => member.category))].filter(id => !memberCategories.some(category => category.id === id));
+const categories = [...memberCategories, ...unlisted.map(id => ({ id, label: id, english: '' }))];
+---
+<Layout title="People"><PageIntro english="OUR PEOPLE" title="People" description="Meet the faculty, researchers, students and alumni who make up our community." /><div class="container page-content people-content">{categories.map(category => <section class="people-group" aria-labelledby={`category-${category.id}`}><div class="group-heading"><h2 id={`category-${category.id}`}>{category.label}</h2></div>{members.some(member => member.category === category.id) ? <div class="members-grid">{members.filter(member => member.category === category.id).map(member => <MemberCard member={member} />)}</div> : <p class="group-empty">Member profiles coming soon <span aria-hidden="true">—</span></p>}</section>)}</div></Layout>

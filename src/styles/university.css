@@ -1,0 +1,329 @@
+/* University identity stays separate from the editable lab identity. */
+.header-identities {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  min-width: 0;
+}
+.menu-toggle { flex-shrink: 0; white-space: nowrap; }
+.hero-affiliation > span:last-child { min-width: 0; }
+.uob-identity {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  align-items: flex-start;
+  flex-shrink: 0;
+  width: 148px;
+}
+.uob-logo-link {
+  display: block;
+}
+.uob-logo {
+  width: 140px;
+  height: 46px;
+  object-fit: contain;
+}
+.uob-school-link {
+  font-size: 9px;
+  line-height: 1.4;
+  color: var(--green);
+  white-space: nowrap;
+}
+.uob-school-link:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.has-university .header-lab-brand {
+  border-left: 1px solid var(--line);
+  padding-left: 22px;
+  min-height: 45px;
+}
+.has-university .header-lab-brand .brand-text strong {
+  font-size: 15px;
+}
+.has-university .header-lab-brand .brand-text > span {
+  font-size: 8px;
+}
+.site-header .navigation {
+  gap: 20px;
+}
+.campus-hero {
+  position: relative;
+  margin: 0;
+  width: 100%;
+  min-width: 0;
+  aspect-ratio: 1.03;
+  overflow: hidden;
+  background: #254e43;
+  border-radius: 2px;
+  isolation: isolate;
+}
+.campus-photo {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 49% center;
+  z-index: -2;
+}
+.campus-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(13, 35, 38, 0.23) 0%,
+    rgba(13, 35, 38, 0) 30%,
+    rgba(13, 35, 38, 0.12) 52%,
+    rgba(13, 35, 38, 0.87) 100%
+  );
+  z-index: -1;
+}
+.campus-location {
+  position: absolute;
+  top: 24px;
+  left: 26px;
+  right: 26px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  color: #fff;
+  font: 8px var(--mono);
+  letter-spacing: 0.13em;
+  text-shadow: 0 1px 4px #0006;
+}
+.campus-location > span {
+  font: 23px var(--sans);
+}
+.campus-caption {
+  position: absolute;
+  bottom: 27px;
+  left: 28px;
+  right: 28px;
+  color: #fff;
+}
+.campus-caption-label {
+  display: block;
+  color: #e9ecdf;
+  font: 8px var(--mono);
+  letter-spacing: 0.12em;
+  margin-bottom: 12px;
+}
+.campus-caption > a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  font-family: var(--serif);
+  font-size: 25px;
+  line-height: 1.35;
+  letter-spacing: -0.02em;
+}
+.campus-caption > a > span {
+  font: 23px var(--sans);
+}
+.campus-caption > a:hover {
+  text-decoration: underline;
+  text-underline-offset: 5px;
+}
+.campus-caption-subtitle {
+  display: block;
+  margin-top: 7px;
+  color: #e9ecdf;
+  font-size: 10px;
+  letter-spacing: 0.04em;
+}
+.footer-branding {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+.footer-branding .brand {
+  padding-left: 30px;
+  border-left: 1px solid var(--line);
+}
+@media (max-width: 1200px) {
+  .header-identities {
+    gap: 16px;
+  }
+  .has-university .header-lab-brand {
+    padding-left: 16px;
+  }
+  .site-header .navigation {
+    gap: 15px;
+  }
+  .uob-identity {
+    width: 133px;
+  }
+  .uob-logo {
+    width: 128px;
+    height: 42px;
+  }
+  .uob-school-link {
+    font-size: 8px;
+  }
+  .footer-branding {
+    gap: 20px;
+  }
+  .footer-branding .brand {
+    padding-left: 20px;
+  }
+}
+@media (max-width: 1080px) {
+  .site-header .navigation {
+    gap: 8px 25px;
+  }
+  .campus-caption > a {
+    font-size: 21px;
+  }
+  .campus-caption {
+    bottom: 23px;
+    left: 23px;
+    right: 23px;
+  }
+  .campus-location {
+    left: 23px;
+    right: 23px;
+    top: 20px;
+    font-size: 7px;
+  }
+  .footer-branding {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .footer-branding .brand {
+    padding-left: 0;
+    border: 0;
+  }
+}
+@media (max-width: 760px) {
+  .header-inner {
+    gap: 12px;
+    min-height: 82px;
+  }
+  .header-identities {
+    gap: 12px;
+  }
+  .site-header .uob-identity {
+    width: 112px;
+    gap: 3px;
+  }
+  .site-header .uob-logo {
+    width: 109px;
+    height: 36px;
+  }
+  .site-header .uob-school-link {
+    font-size: 7.2px;
+    letter-spacing: -0.015em;
+  }
+  .has-university .header-lab-brand {
+    padding-left: 12px;
+    min-height: 38px;
+  }
+  .has-university .header-lab-brand .brand-text strong {
+    font-size: 14px;
+    letter-spacing: 0;
+  }
+  .has-university .header-lab-brand .brand-text > span {
+    display: none;
+  }
+  .has-university .header-lab-brand .brand-logo {
+    width: 28px;
+    height: 28px;
+  }
+  .campus-hero {
+    aspect-ratio: 1.2;
+    max-height: 380px;
+  }
+  .campus-photo {
+    object-position: 49% 30%;
+  }
+  .campus-location {
+    top: 17px;
+    left: 20px;
+    right: 20px;
+    font-size: 7px;
+  }
+  .campus-caption {
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+  }
+  .campus-caption-label {
+    font-size: 7px;
+    margin-bottom: 8px;
+  }
+  .campus-caption > a {
+    font-size: 22px;
+    gap: 14px;
+  }
+  .campus-caption-subtitle {
+    font-size: 9px;
+    margin-top: 5px;
+  }
+  .footer-branding {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 25px;
+  }
+  .footer-branding .uob-identity {
+    width: 140px;
+  }
+  .footer-branding .uob-logo {
+    width: 136px;
+    height: 45px;
+  }
+  .footer-branding .uob-school-link {
+    font-size: 8px;
+  }
+  .footer-branding .brand {
+    width: auto;
+  }
+  .footer-branding .lab-mark {
+    display: none;
+  }
+  .footer-branding .brand-text strong {
+    font-size: 14px;
+  }
+  .footer-branding .brand-text > span {
+    font-size: 7px;
+  }
+  .footer-affiliation {
+    max-width: 70%;
+  }
+  .footer-links {
+    max-width: 30%;
+  }
+}
+@media (max-width: 370px) {
+  .menu-toggle { width: 40px; min-width: 40px; justify-content: center; padding: 10px; }
+  .menu-toggle > span:first-child { display: none; }
+  .campus-caption > a {
+    font-size: 19px;
+  }
+  .campus-caption-label {
+    font-size: 6px;
+  }
+  .footer-branding {
+    gap: 18px;
+  }
+  .footer-branding .brand-text > span {
+    display: none;
+  }
+}
+@media print {
+  .campus-photo {
+    position: static;
+  }
+  .campus-hero {
+    aspect-ratio: auto;
+  }
+  .campus-caption,
+  .campus-location,
+  .campus-overlay {
+    display: none;
+  }
+}

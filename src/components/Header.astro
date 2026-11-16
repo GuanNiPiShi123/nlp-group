@@ -1,0 +1,50 @@
+---
+import Mark from './Mark.astro';
+import UniversityBrand from './UniversityBrand.astro';
+import { site } from '../data/lab';
+import { navigation, placeholders } from '../data/ui';
+import { path, asset, safeLink } from '../lib/utils';
+const current = Astro.url.pathname.replace(/\/$/, '');
+const isCurrent = (route: string) => current === path(route).replace(/\/$/, '') || (route === 'news' && current.startsWith(path('news')));
+---
+<header class="site-header">
+  <div class="container header-inner">
+    <div class:list={['header-identities', { 'has-university': site.branding.enabled }]}>
+    <UniversityBrand showSchool={false} />
+    <div class="header-lab-lockup">
+    <a class="brand header-lab-brand" href={path()} aria-label={`${site.name || placeholders.name} · Home`}>
+      {site.logo ? <img class="brand-logo" src={asset(site.logo)} alt="" width="44" height="44" /> : !site.branding.enabled && <Mark />}
+      <span class="brand-text"><strong>{site.name || placeholders.name}</strong></span>
+    </a>
+    {site.branding.enabled && <a class="header-school-name" href={safeLink(site.branding.schoolUrl)}>{site.branding.schoolName}</a>}
+    </div>
+    </div>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation" aria-label="Open navigation menu"><span>Menu</span><span class="menu-lines" aria-hidden="true"></span></button>
+    <nav id="primary-navigation" class="navigation" aria-label="Main navigation">
+      {navigation.map(item => <a class:list={{'nav-join': item.emphasis}} href={path(item.href)} aria-current={isCurrent(item.href) ? 'page' : undefined}>{item.label}{item.emphasis && <span aria-hidden="true">↗</span>}</a>)}
+    </nav>
+  </div>
+</header>
+<script>
+  const toggle = document.querySelector<HTMLButtonElement>('.menu-toggle');
+  const nav = document.querySelector<HTMLElement>('#primary-navigation');
+  if (toggle && nav) {
+    nav.classList.add('enhanced');
+    const setOpen = (open: boolean) => {
+      toggle.setAttribute('aria-expanded', String(open));
+      toggle.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
+      nav.classList.toggle('is-open', open);
+    };
+    toggle.addEventListener('click', () => setOpen(toggle.getAttribute('aria-expanded') !== 'true'));
+    nav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => setOpen(false)));
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') {
+        setOpen(false); toggle.focus();
+      }
+    });
+    document.addEventListener('click', event => {
+      if (event.target instanceof Node && !nav.contains(event.target) && !toggle.contains(event.target)) setOpen(false);
+    });
+    matchMedia('(min-width: 1081px)').addEventListener('change', () => setOpen(false));
+  }
+</script>

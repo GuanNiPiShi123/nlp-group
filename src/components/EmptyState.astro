@@ -1,0 +1,12 @@
+---
+interface Props { title: string; description?: string; compact?: boolean; kind?: 'research' | 'paper' | 'people' | 'news' }
+const { title, description, compact = false, kind = 'research' } = Astro.props;
+---
+<div class:list={['empty-state', { compact }]}>
+  <span class="empty-icon" aria-hidden="true">
+    <svg viewBox="0 0 32 32" fill="none">
+      {kind === 'paper' ? <><path d="M9 5h10l5 5v17H9zM19 5v6h5M13 16h7M13 21h5" /></> : kind === 'people' ? <><circle cx="16" cy="11" r="4" /><path d="M8 27v-3a8 8 0 0 1 16 0v3M5 9h3M24 9h3" /></> : kind === 'news' ? <><path d="M7 8h18v19H7zM11 5v6M21 5v6M7 14h18M12 19h3M18 19h3M12 23h3" /></> : <><circle cx="16" cy="16" r="4" /><circle cx="6" cy="7" r="2" /><circle cx="26" cy="9" r="2" /><circle cx="24" cy="26" r="2" /><path d="m8 9 5 5m7 0 4-4m-5 9 4 5" /></>}
+    </svg>
+  </span>
+  <div><h3>{title}</h3>{description && <p>{description}</p>}</div>
+</div>

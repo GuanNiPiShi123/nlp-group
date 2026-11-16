@@ -1,0 +1,10 @@
+---
+import type { Publication } from '../data/lab';
+import { safeLink } from '../lib/utils';
+interface Props { publication: Publication }
+const { publication: p } = Astro.props;
+const links = [{ label: 'Paper', url: p.paper }, { label: 'Code', url: p.code }, { label: 'Project', url: p.project }];
+---
+<article class="publication-item" data-publication data-year={p.year} data-search={`${p.title} ${p.authors} ${p.venue}`.toLocaleLowerCase()}>
+  <span class="publication-venue">{p.venue}</span><div class="publication-body"><h3>{p.title}</h3><p>{p.authors}</p><div class="text-links">{links.filter(link => safeLink(link.url)).map(link => <a href={safeLink(link.url)} target="_blank" rel="noopener noreferrer">{link.label} ↗</a>)}</div>{p.bibtex && <details class="bibtex"><summary>BibTeX</summary><pre><code>{p.bibtex}</code></pre></details>}</div>
+</article>

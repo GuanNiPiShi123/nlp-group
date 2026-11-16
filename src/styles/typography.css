@@ -1,0 +1,408 @@
+/* Self-hosted English typography. Font licences are included in public/fonts/. */
+@font-face {
+  font-family: "DM Sans";
+  src: url("/fonts/dm-sans-latin.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Source Serif 4";
+  src: url("/fonts/source-serif-4-latin.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400 600;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Source Serif 4";
+  src: url("/fonts/source-serif-4-italic-latin.woff2") format("woff2");
+  font-style: italic;
+  font-weight: 400 600;
+  font-display: swap;
+}
+body {
+  font-optical-sizing: auto;
+  font-size: 15px;
+  line-height: 1.75;
+}
+h1,
+h2,
+h3 {
+  font-optical-sizing: auto;
+}
+.hero h1 {
+  font-size: clamp(48px, 5.3vw, 72px);
+  font-weight: 400;
+  line-height: 1.06;
+  letter-spacing: -0.045em;
+  margin: 28px 0 25px;
+}
+.hero-description {
+  font-size: 15px;
+  line-height: 1.85;
+  max-width: 425px;
+}
+.hero-actions {
+  gap: 28px;
+}
+.hero-actions .button {
+  gap: 26px;
+}
+.hero-affiliation {
+  font-size: 10px;
+  letter-spacing: 0.015em;
+  line-height: 1.75;
+}
+.eyebrow,
+.subtle-label,
+.campus-location,
+.campus-caption-label {
+  font-family: var(--sans);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+}
+.eyebrow {
+  font-size: 10px;
+}
+.subtle-label {
+  font-size: 10px;
+}
+.brand-text strong {
+  letter-spacing: -0.02em;
+  font-weight: 600;
+}
+.brand-text > span {
+  letter-spacing: 0.005em;
+}
+.has-university .header-lab-brand .brand-text strong {
+  font-size: 15px;
+}
+.site-header .navigation > a {
+  font-size: 12px;
+  font-weight: 500;
+}
+.site-header .navigation > a[aria-current="page"] {
+  font-weight: 600;
+}
+.uob-school-link {
+  font-size: 9px;
+  letter-spacing: -0.015em;
+}
+.button {
+  font-size: 13px;
+  font-weight: 500;
+}
+.text-link,
+.text-links a {
+  font-size: 13px;
+  font-weight: 500;
+}
+.strip-label h2 {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+.news-strip-inner > p {
+  font-size: 12px;
+}
+.strip-more {
+  font-size: 12px;
+}
+.section-heading h2 {
+  font-size: 41px;
+  font-weight: 400;
+  line-height: 1.16;
+  letter-spacing: -0.035em;
+}
+.section-heading.horizontal h2 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 36px;
+  letter-spacing: -0.035em;
+}
+.section-aside p {
+  font-size: 14px;
+  line-height: 1.8;
+}
+.research-empty h3,
+.empty-state h3 {
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: -0.025em;
+}
+.research-empty p,
+.empty-state p {
+  font-size: 13px;
+  line-height: 1.8;
+}
+.page-intro h1 {
+  font-size: 58px;
+  font-weight: 400;
+  letter-spacing: -0.04em;
+}
+.page-intro-grid > p {
+  font-size: 15px;
+  line-height: 1.8;
+}
+.group-heading h2 {
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: -0.025em;
+}
+.group-empty {
+  font-size: 13px;
+}
+.publication-body h3 {
+  letter-spacing: -0.02em;
+  font-weight: 500;
+}
+.year-heading {
+  font-weight: 400;
+}
+.campus-caption > a {
+  font-size: 27px;
+  line-height: 1.2;
+  font-weight: 400;
+  letter-spacing: -0.025em;
+}
+.campus-caption-subtitle {
+  font-size: 11px;
+  letter-spacing: 0.01em;
+}
+.join-home h2 {
+  font-size: 42px;
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+}
+.join-home p {
+  max-width: 430px;
+  font-size: 14px;
+}
+.opportunity h2,
+.contact-callout h2 {
+  font-weight: 500;
+  letter-spacing: -0.025em;
+}
+.contact-information dt {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+.contact-information dd {
+  font-size: 15px;
+}
+.contact-panel h2 {
+  font-size: 28px;
+  font-weight: 400;
+  letter-spacing: -0.025em;
+}
+.contact-panel-caption {
+  font-size: 10px;
+  letter-spacing: 0.06em;
+}
+.news-detail h1 {
+  font-family: var(--serif);
+  font-weight: 400;
+  letter-spacing: -0.035em;
+}
+.footer-affiliation {
+  font-size: 12px;
+  line-height: 1.9;
+}
+.footer-bottom {
+  font-size: 11px;
+}
+.footer-bottom > span:nth-child(2) {
+  font-family: var(--sans);
+  font-size: 10px;
+  letter-spacing: 0.03em;
+}
+@media (max-width: 1200px) {
+  .site-header .navigation {
+    gap: 17px;
+  }
+  .header-identities {
+    gap: 17px;
+  }
+  .has-university .header-lab-brand {
+    padding-left: 17px;
+  }
+}
+@media (max-width: 1080px) {
+  .hero h1 {
+    font-size: 56px;
+  }
+  .hero-actions {
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  .hero-actions .text-link {
+    font-size: 13px;
+  }
+  .section-heading h2 {
+    font-size: 36px;
+  }
+  .site-header .navigation {
+    gap: 8px 25px;
+  }
+  .site-header .navigation > a {
+    font-size: 15px;
+  }
+  .campus-caption > a {
+    font-size: 25px;
+  }
+}
+@media (max-width: 760px) {
+  .hero h1 {
+    font-size: 54px;
+    line-height: 1.06;
+    margin: 22px 0;
+  }
+  .hero-description {
+    font-size: 14px;
+    line-height: 1.85;
+    max-width: 100%;
+  }
+  .hero-affiliation {
+    font-size: 9px;
+  }
+  .hero-actions {
+    flex-wrap: nowrap;
+    gap: 22px;
+  }
+  .hero-actions .button {
+    font-size: 12px;
+    gap: 18px;
+    padding: 12px 17px;
+  }
+  .hero-actions .text-link {
+    font-size: 12px;
+    gap: 8px;
+  }
+  .hero .eyebrow {
+    font-size: 9px;
+    letter-spacing: 0.12em;
+  }
+  .has-university .header-lab-brand .brand-text strong {
+    font-size: 13px;
+    max-width: 115px;
+    line-height: 1.25;
+  }
+  .has-university .header-lab-brand .brand-text {
+    max-width: 115px;
+  }
+  .site-header .uob-school-link {
+    font-size: 7.2px;
+  }
+  .news-strip-inner {
+    grid-template-columns: 1fr auto;
+  }
+  .section-heading h2 {
+    font-size: 34px;
+    line-height: 1.2;
+  }
+  .section-heading.horizontal h2 {
+    font-size: 30px !important;
+  }
+  .section-heading.horizontal .eyebrow {
+    font-size: 8px;
+  }
+  .section-aside {
+    align-items: flex-start;
+  }
+  .section-aside p {
+    font-size: 13px;
+  }
+  .research-empty h3 {
+    font-size: 19px;
+  }
+  .empty-state h3 {
+    font-size: 17px;
+  }
+  .empty-state p {
+    font-size: 13px;
+  }
+  .page-intro h1 {
+    font-size: 45px;
+  }
+  .page-intro-grid > p {
+    font-size: 14px;
+    line-height: 1.85;
+  }
+  .campus-caption > a {
+    font-size: 25px;
+  }
+  .campus-caption-subtitle {
+    font-size: 10px;
+  }
+  .join-home h2 {
+    font-size: 34px;
+    line-height: 1.15;
+  }
+  .join-home p {
+    font-size: 13px;
+    max-width: 255px;
+  }
+  .footer-branding .brand-text {
+    max-width: 135px;
+  }
+  .footer-branding .brand-text strong {
+    font-size: 14px;
+  }
+  .footer-branding .brand-text > span {
+    font-size: 8px;
+    line-height: 1.5;
+  }
+  .footer-affiliation {
+    font-size: 11px;
+  }
+  .footer-bottom {
+    font-size: 10px;
+  }
+  .footer-bottom > span:nth-child(2) {
+    font-size: 9px;
+  }
+  .group-heading h2 {
+    font-size: 20px;
+  }
+}
+@media (max-width: 370px) {
+  .hero h1 {
+    font-size: 47px;
+  }
+  .hero-actions {
+    gap: 17px;
+  }
+  .hero-actions .button {
+    gap: 12px;
+    padding-inline: 14px;
+  }
+  .hero-actions .text-link {
+    font-size: 11px;
+    gap: 6px;
+  }
+  .header-identities {
+    gap: 10px;
+  }
+  .has-university .header-lab-brand {
+    padding-left: 10px;
+  }
+  .has-university .header-lab-brand .brand-text strong {
+    max-width: 98px;
+    font-size: 12px;
+  }
+  .footer-branding .brand-text {
+    max-width: 105px;
+  }
+  .footer-branding .brand-text strong {
+    font-size: 13px;
+  }
+  .section-heading.horizontal h2 {
+    font-size: 27px !important;
+  }
+  .section-heading.horizontal .text-link {
+    font-size: 11px;
+  }
+}

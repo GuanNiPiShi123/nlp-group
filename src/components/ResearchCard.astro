@@ -1,0 +1,10 @@
+---
+import type { ResearchArea } from '../data/lab';
+import { asset, safeLink } from '../lib/utils';
+interface Props { item: ResearchArea; index: number }
+const { item, index } = Astro.props;
+---
+<article class="research-card" id={item.id}>
+  <div class="research-image">{item.image ? <img src={asset(item.image)} alt={item.imageAlt || item.title} loading="lazy" width="640" height="360" /> : <span aria-hidden="true">[ {String(index + 1).padStart(2, '0')} ]</span>}</div>
+  <div class="card-body"><h2>{item.title}</h2><p>{item.description}</p><div class="text-links">{item.projects?.filter(link => safeLink(link.url)).map(link => <a href={safeLink(link.url)} target="_blank" rel="noopener noreferrer">{link.label} ↗</a>)}</div></div>
+</article>

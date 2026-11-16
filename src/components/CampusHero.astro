@@ -1,0 +1,10 @@
+---
+import { site } from '../data/lab';
+import { asset, safeLink } from '../lib/utils';
+const branding = site.branding;
+---
+<figure class="campus-hero campus-background">
+  <img class="campus-photo" src={asset(branding.heroImage)} alt={branding.heroImageAlt} width="933" height="700" fetchpriority="high" />
+  <div class="campus-overlay" aria-hidden="true"></div>
+  <figcaption class="campus-caption"><a href={safeLink(branding.schoolUrl)}>{branding.schoolName}</a></figcaption>
+</figure>

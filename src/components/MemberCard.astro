@@ -1,0 +1,11 @@
+---
+import type { Member } from '../data/lab';
+import { asset, safeLink, emailLink } from '../lib/utils';
+interface Props { member: Member }
+const { member } = Astro.props;
+---
+<article class="member-card" id={member.id}>
+  <div class="member-photo">{member.photo ? <img src={asset(member.photo)} alt={`Portrait of ${member.name}`} loading="lazy" width="400" height="400" /> : <svg viewBox="0 0 100 100" fill="none" aria-label="Photo to be added" role="img"><circle cx="50" cy="37" r="13"/><path d="M25 85v-9a25 25 0 0 1 50 0v9"/></svg>}</div>
+  <h3>{member.name}</h3>{member.role && <p class="member-role">{member.role}</p>}{member.interests && <p>{member.interests}</p>}
+  <div class="text-links">{safeLink(member.homepage) && <a href={safeLink(member.homepage)} target="_blank" rel="noopener noreferrer">Website ↗</a>}{emailLink(member.email) && <a href={emailLink(member.email)}>Email ↗</a>}</div>
+</article>

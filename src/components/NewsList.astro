@@ -1,0 +1,8 @@
+---
+import type { NewsItem } from '../data/lab';
+import { path, safeLink, displayDate } from '../lib/utils';
+import Arrow from './Arrow.astro';
+interface Props { items: NewsItem[] }
+const { items } = Astro.props;
+---
+<div class="news-list">{items.map(item => <article class="news-item"><time datetime={item.date}>{displayDate(item.date)}</time><div><h3><a href={safeLink(item.url) || path(`news/${item.slug}`)}>{item.title}</a></h3>{item.summary && <p>{item.summary}</p>}</div><Arrow /></article>)}</div>

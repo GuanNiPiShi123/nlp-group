@@ -1,0 +1,10 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PageIntro from '../../components/PageIntro.astro';
+import EmptyState from '../../components/EmptyState.astro';
+import NewsList from '../../components/NewsList.astro';
+import { news } from '../../data/lab';
+import { placeholders } from '../../data/ui';
+const items = [...news].sort((a,b) => b.date.localeCompare(a.date));
+---
+<Layout title="News"><PageIntro english="NEWS & UPDATES" title="News" description="Research highlights, new papers, awards, seminars and updates from the group." /><section class="container page-content">{items.length ? <NewsList items={items} /> : <EmptyState title={placeholders.news} description="Research progress and news from the group will be shared here." kind="news" />}</section></Layout>

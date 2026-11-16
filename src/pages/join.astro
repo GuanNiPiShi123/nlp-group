@@ -1,0 +1,9 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageIntro from '../components/PageIntro.astro';
+import Arrow from '../components/Arrow.astro';
+import { join, site } from '../data/lab';
+import { placeholders } from '../data/ui';
+import { path, safeLink } from '../lib/utils';
+---
+<Layout title="Join us"><PageIntro english="WORK WITH US" title="Join us" description={join.introduction || 'Graduate study, open positions, research internships and collaboration. Opportunities and application details will be shared here.'} /><section class="container page-content"><div class="opportunities">{join.opportunities.map(item => <article class="opportunity"><div><h2>{item.title}</h2><p>{item.description || placeholders.join}</p>{safeLink(item.url) && <a class="text-link" href={safeLink(item.url)}>Find out more ↗</a>}</div><span class="opportunity-symbol" aria-hidden="true">+</span></article>)}</div><aside class="contact-callout"><div><h2>Start a conversation</h2><p>{site.email ? 'Get in touch using the details on our contact page.' : 'Contact details will be published here soon.'}</p></div><a class="button button-primary" href={path('contact')}>Contact <Arrow /></a></aside></section></Layout>

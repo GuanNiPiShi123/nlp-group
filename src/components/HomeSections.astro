@@ -1,0 +1,43 @@
+---
+import { homeSections, placeholders } from '../data/ui';
+import { site, research, members, publications, news, join } from '../data/lab';
+import { path, emailLink } from '../lib/utils';
+import Arrow from './Arrow.astro';
+import EmptyState from './EmptyState.astro';
+import ResearchCard from './ResearchCard.astro';
+import MemberCard from './MemberCard.astro';
+import PublicationItem from './PublicationItem.astro';
+import NewsList from './NewsList.astro';
+const featured = publications.filter(p => p.featured).sort((a,b) => b.year - a.year).slice(0,3);
+const latest = [...news].sort((a,b) => b.date.localeCompare(a.date)).slice(0,3);
+const moreLabels: Record<string,string> = { people: 'All people', publications: 'All publications', news: 'All news', contact: 'Contact details' };
+---
+{homeSections.map((section, index) => section.href === 'join' ?
+  <section class="container join-home home-main-section" id="join" data-home-section={section.href} aria-labelledby="home-join-title">
+    <div>
+      <div class="home-section-title"><span class="home-section-number" aria-hidden="true">{String(index+1).padStart(2,'0')}</span><h2 id="home-join-title">{section.label}</h2></div>
+      <p class="join-tagline">Curious minds. Shared possibilities.</p>
+      <p>{join.introduction || (join.opportunities.some(item => item.description) ? 'Explore opportunities to study, work and collaborate with us.' : 'Details of study, work and collaboration opportunities are coming soon.')}</p>
+      <a class="button button-light" href={path('join')}>Join us <Arrow /></a>
+    </div>
+    <div class="join-art" aria-hidden="true">[<span>n</span>]<span class="join-art-star">✳</span></div>
+  </section>
+  : <section class:list={['home-main-section', {'publications-home': section.href === 'publications'}]} id={section.href} data-home-section={section.href} aria-labelledby={`home-${section.href}-title`}>
+    <div class="container section">
+      <div class="section-heading horizontal home-section-heading">
+        <div class="home-section-title"><span class="home-section-number" aria-hidden="true">{String(index+1).padStart(2,'0')}</span><h2 id={`home-${section.href}-title`}>{section.label}</h2></div>
+        {section.href === 'research' ? <p class="home-section-description">Explore our research themes,<br />projects and work in progress.</p> : moreLabels[section.href] && <a class="text-link" href={path(section.href)}>{moreLabels[section.href]} <Arrow /></a>}
+      </div>
+
+      {section.href === 'research' && (research.length ? <div class="research-grid">{research.slice(0,2).map((item, i) => <ResearchCard item={item} index={i} />)}</div> : <div class="research-empty"><div class="research-empty-art" aria-hidden="true"><span class="orbital orbit-one"></span><span class="orbital orbit-two"></span><span class="orbital orbit-three"></span><span class="orbit-center">↗</span></div><div><span class="subtle-label">OUR RESEARCH</span><h3>{placeholders.research}</h3><p>Research themes, methods and projects<br />will appear here as the site grows.</p><a class="text-link" href={path('research')}>Research overview <Arrow /></a></div></div>)}
+
+      {section.href === 'people' && (members.length ? <div class="members-grid home-members-grid">{members.slice(0,4).map(member => <MemberCard member={member} />)}</div> : <EmptyState title={placeholders.members} description="Meet our faculty, researchers, students and alumni once member profiles are added." kind="people" compact />)}
+
+      {section.href === 'publications' && (featured.length ? featured.map(publication => <PublicationItem publication={publication} />) : <EmptyState title="Selected publications coming soon" description="Selected publications will appear here, with links to papers, code and project pages." kind="paper" />)}
+
+      {section.href === 'news' && (latest.length ? <NewsList items={latest} /> : <EmptyState title={placeholders.news} description="New papers, academic events and group activities will be shared here." kind="news" compact />)}
+
+      {section.href === 'contact' && <div class="home-contact-summary"><p>For research enquiries,<br />academic exchange and collaboration.</p><dl><div><dt>Email</dt><dd>{emailLink(site.email) ? <a href={emailLink(site.email)}>{site.email}</a> : 'Email coming soon'}</dd></div><div><dt>Address</dt><dd>{site.address || 'Address coming soon'}</dd></div></dl></div>}
+    </div>
+  </section>
+)}
